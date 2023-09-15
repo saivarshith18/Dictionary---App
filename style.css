@@ -9,8 +9,8 @@
     width: 100%;
 }
 .card{
-    max-height:650px;
-    width:400px;
+    max-height:600px;
+    width:350px;
     
     background-color: white;
     border-radius: 10px;
@@ -21,6 +21,7 @@
     display: grid;
     grid-template-rows:  100px 10% 10% 70%;
     padding: 10px;
+    
 }
 #card1 , #card0 {
     display: flex;
@@ -47,7 +48,7 @@ button:hover{
 input{
     padding-left: 20px;
     height:40px;
-    width: 300px;
+    width:250px;
     background-color:#EEEEEE;
     border: none;
     outline: none;
