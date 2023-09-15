@@ -21,6 +21,7 @@
     display: grid;
     grid-template-rows:  100px 10% 10% 70%;
     padding: 10px;
+    animation:pop 2s ease-in-out;
     
 }
 #card1 , #card0 {
@@ -97,3 +98,13 @@ input,button{
     font-weight:700;
 }
 
+@keyframes pop {
+
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+    
+}
