@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div id="card0">
+            <h2>DICTIONARY</h2>
+        </div>
+        <div id="card1">
+            
+            <input type="search" placeholder="Search here..." id="searchword">
+            <button>search</button>
+        </div>
+        <div id="card2">
+            <h2  id="searchedword"></h2><p id="phonetics"></p>
+        </div>
+        <div id="card3">
+            <p id="parts-of-speech"></p>
+            <h3 id="meaning"></h3>
+            <h3 id="meaning2"></h3>
+            <h3 id="meaning3"></h3>
+            <p id="synonyms"></p>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+
+    const url="https://api.dictionaryapi.dev/api/v2/entries/en/";
+    var btn = document.querySelector("button");
+    var theWord = document.querySelector("#searchedword");
+    var myword = document.querySelector("input");
+    var Phonetics = document.querySelector("#phonetics");
+    var pos = document.querySelector("#parts-of-speech");
+    var Meaning = document.querySelector("#meaning");
+    var Meaning2 = document.querySelector("#meaning2");
+    var Meaning3 = document.querySelector("#meaning3");
+    var syn = document.querySelector("#synonyms");
+    async function meaning(woord){
+
+        var response = await fetch(url + woord);
+        var data = await response.json();
+        console.log(data);
+        theWord.innerHTML = data[0].word;
+        //Phonetics.innerHTML = data[0].phonetics[1].text;
+        pos.innerHTML = " ["+ data[0].meanings[0].partOfSpeech + "]";
+        Meaning.innerHTML = "~ " + data[0].meanings[0].definitions[0].definition ;
+        Meaning2.innerHTML = "~ " + data[0].meanings[0].definitions[1].definition ;
+        Meaning3.innerHTML = "~ " + data[0].meanings[0].definitions[2].definition ;
+       
+        
+
+    }
+
+    btn.addEventListener("click",function(){
+
+        meaning(myword.value);
+    })
+    
+</script>
+</html>
